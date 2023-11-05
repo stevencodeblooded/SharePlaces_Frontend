@@ -63,7 +63,7 @@ const EditPlace = () => {
     })
 
     console.log(response)
-    toast.success('Place was edited successfully')
+    toast.success('Place was updated successfully')
     navigate(`/${creatorId}/Places`)
   }
 
