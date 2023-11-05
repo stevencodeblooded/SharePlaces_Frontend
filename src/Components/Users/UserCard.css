@@ -1,0 +1,42 @@
+.users-list {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    row-gap: 30px;
+}
+
+.userlink {
+    text-decoration: none;
+}
+
+.one-user {
+    border: none;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #FF6B6B;
+    border-radius: 7px;
+    transition: .3s all ease-in;
+}
+
+.one-user:hover {
+    background-color: #DAA520;
+}
+
+.one-user > div > h3 {
+    font-weight: 500;
+    color: #FFD700;
+}
+
+.one-user > div > p {
+    font-weight: 500;
+    color: #f0f0f0;
+}
+
+.picture-for-profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin-right: 20px;
+}
