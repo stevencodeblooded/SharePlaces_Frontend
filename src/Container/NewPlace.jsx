@@ -21,7 +21,7 @@ const NewPlace = () => {
     const state = navigation.state
 
     const handleChange = (e) => {
-      const { name, value } = e.target
+      const { name, value } = e.target 
 
         setNewPlace(prevData => {
           return {
