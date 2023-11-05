@@ -8,13 +8,19 @@ const UserCard = ({ users }) => {
   const USERS = users.users
 
   if (USERS.length  === 0 ) {
-    return <h1>No User Was Found</h1>
+    return (
+      <div className="center-no-user-found">
+        <h1>No User Was Found!</h1>
+        <Link to='/SignUp' className="new-place-btn">Create New User</Link>
+      </div>
+    )
   }
 
   return (
     <div className="users-list">
 
         {USERS.map((user) => {
+
           let noPlaces = user.places.length 
           return (
             <Link to={`${user.id}/Places`} className="userlink" key={user.id}>
