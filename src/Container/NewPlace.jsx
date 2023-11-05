@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate, useNavigation } from 'react-router-dom'
 import AuthRequired from '../Components/utils/AuthRequired'
 import { useAuth } from '../Components/utils/AuthContext'
+import { toast } from 'sonner'
 
 const NewPlace = () => {
 
@@ -56,18 +57,15 @@ const NewPlace = () => {
       
         if (!response.ok) {
           const data = await response.json()
-          console.log(data);
-          throw new Error(data.message)
+          return toast.error(data.message)
         } else {
           const data = await response.json()
-          console.log('DATA FROM POST CREATE PLACE', data);
           const uid = data.places.creator
           const message = data.message
-          alert(message)
+          toast.success(message)
           return navigate(`/${uid}/Places`)
         }
       }
-
     }
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Link, useNavigate, useNavigation } from 'react-router-dom'
+import { toast } from 'sonner'
 import './SignUp.css'
 
 const SignUp = () => {
@@ -46,15 +47,15 @@ const SignUp = () => {
     
             if (!response.ok) {
                 const data = await response.json()
-                throw new Error(data.message)
+                return toast.error(data.message)
             } else  {
                 const data = await response.json()
-                alert(data.message)
+                toast.success(data.message)
                 return navigate('/Authenticate')
             }
     
         } catch (error) {
-            throw new Error(error.message)
+            return toast.error(error.message)
         }
     }
 

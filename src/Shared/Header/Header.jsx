@@ -6,6 +6,7 @@ import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from "../../Components/utils/AuthContext";
 
 import "./Header.css";
+import { toast } from "sonner";
 
 const Header = () => {
 
@@ -33,6 +34,7 @@ const Header = () => {
   const handleLogOut = () => {
     auth.logout()
     setIsOpen(false)
+    toast.success('Logged Out Successfully')
     setUserClicked(false)
   }
 

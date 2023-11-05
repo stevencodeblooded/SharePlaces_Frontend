@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { useNavigate, useLoaderData, useParams, Link } from 'react-router-dom'
 import { useAuth } from '../Components/utils/AuthContext'
+import { toast } from 'sonner'
 
 export async function loader({ params }) {
 
@@ -23,9 +24,7 @@ const EditPlace = () => {
   let creatorId
   try {
     creatorId = auth.user.user.id 
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 
   const navigate = useNavigate() 
   const { pid } = useParams()
@@ -64,6 +63,7 @@ const EditPlace = () => {
     })
 
     console.log(response)
+    toast.success('Place was edited successfully')
     navigate(`/${creatorId}/Places`)
   }
 

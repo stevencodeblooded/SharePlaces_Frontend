@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Link, useSearchParams, useNavigation, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../Components/utils/AuthContext';
+import { toast } from 'sonner';
 
 const Authenticate = () => {
     const [formData, setFormData] = useState({
@@ -31,7 +32,6 @@ const Authenticate = () => {
     const handleSubmit  = async (e) => {
         e.preventDefault()
 
-        //process.env.REACT_APP_BACKEND_URL = http://localhost:5000/api 
         const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users/login', {
             method: 'POST',
             headers: {
@@ -45,7 +45,7 @@ const Authenticate = () => {
 
         if (!response.ok) {
             const data = await response.json()
-            throw new Error(data.message)
+            return toast.error(data.message)
         } else {
           const data = await response.json()
           if (data.message === 'Logged In Successfully!' ) {
@@ -53,6 +53,7 @@ const Authenticate = () => {
             const search = location.search
             const URLSearchSearchParams = new URLSearchParams(search)
             const pathname = URLSearchSearchParams.get('redirectTo') || '/'
+            toast.success(data.message)
             return navigate(pathname)
           }
         }

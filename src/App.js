@@ -5,7 +5,6 @@ import Places, {loader as placesLoader} from './Container/Places'
 import Authenticate from './Container/Authenticate'
 import SignUp from './Components/Authenticate/SignUp'
 import NewPlace from './Container/NewPlace'
-import DetailPlace from './Container/DetailPlace'
 import Layout from './Container/Layout'
 import NotFound from './Components/NotFound/NotFound'
 import Error from './Components/Error/Error'
@@ -13,6 +12,7 @@ import EditPlace, { loader as editPlaceLoader } from './Container/EditPlace'
 import Privacy from './Components/PrivacyTerms/Privacy'
 
 import { AuthProvider } from './Components/utils/AuthContext'
+import { Toaster } from 'sonner'
 
 function App() {
 
@@ -49,12 +49,6 @@ function App() {
         element={<NewPlace />} 
         errorElement={<Error />}
       />
-      
-      <Route 
-        path='Places/:pid' 
-        element={<DetailPlace />} 
-        errorElement={<Error />} 
-      />
 
       <Route 
         path='Places/:pid/edit'
@@ -76,6 +70,7 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
+        <Toaster position='top-right' richColors />
         <RouterProvider router={router} />
       </AuthProvider>
     </div>

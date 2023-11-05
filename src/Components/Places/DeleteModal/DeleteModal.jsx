@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../utils/AuthContext'
 import './DeleteModal.css'
+import { toast } from 'sonner'
 
 const DeleteModal = ({ setIsDelete, placeId, title }) => {
 
@@ -12,6 +13,7 @@ const DeleteModal = ({ setIsDelete, placeId, title }) => {
     const navigate = useNavigate()
 
     const handleCancel = () => {
+        toast.info('Deleting was Cancelled')
         setIsDelete(false)
     }
 
@@ -23,8 +25,8 @@ const DeleteModal = ({ setIsDelete, placeId, title }) => {
             })
     
             console.log(response);
-    
             setIsDelete(false)
+            toast.error('Successfully Deleted Place')
             navigate(`/${creatorId}/Places`)
         } catch (error) {
             console.log(error);
