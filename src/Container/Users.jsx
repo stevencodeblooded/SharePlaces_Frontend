@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react'
 
-import UserCard from '../Components/Users/UserCard'
 import { Await, defer, useLoaderData } from 'react-router-dom'
+import UserCard from '../Components/Users/UserCard'
+import Loader from '../Shared/Loader/Loader'
 
 export async function loader() {
   const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users')
@@ -14,11 +15,10 @@ const Users = () => {
   const usersData = useLoaderData()
   return (
     <div className='users'>
-      <Suspense fallback={<h1>Loading Users...</h1>}>
+      <Suspense fallback={<Loader />}>
         <Await resolve={usersData.dataUsers}>
           {
             (loadedUsers) => {
-              console.log(loadedUsers);
               return(
                 <UserCard users={loadedUsers}/>
               )
