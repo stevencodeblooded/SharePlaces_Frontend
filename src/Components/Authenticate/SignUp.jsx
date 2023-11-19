@@ -98,7 +98,6 @@ const SignUp = () => {
                 name="image" 
                 id="image" 
                 onChange={handleProfileImage}
-                required
             />
 
             <div className='auth-bns-links'>
