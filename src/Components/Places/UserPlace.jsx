@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import ViewOnMap from './ViewOnMap/ViewOnMap';
 import DeleteModal from './DeleteModal/DeleteModal';
 import { useAuth } from '../utils/AuthContext';
+import defaultPlaceAvatar from '../assets/defaultAvatarPlace.jpg'
 
 import './UserPlace.css'
 
@@ -37,7 +38,7 @@ const UserPlace = ({ place }) => {
   return (
     <div className='user-places'>
         <div className='user-place-data'>
-            <img src={process.env.REACT_APP_ASSET_URL + `/assets/${place.image}`} alt="Place" className='place-image'/>
+            <img src={process.env.REACT_APP_ASSET_URL + `/assets/${place.image}` || defaultPlaceAvatar } alt="Place" className='place-image'/>
 
             <div className='place-title-desc'>
                 <h2>{ place.title }</h2>

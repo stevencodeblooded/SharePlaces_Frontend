@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import {FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from "../../Components/utils/AuthContext";
+import defaultUserAvatar from '../../Components/assets/defaultAvatarProfile.jpg'
 
 import "./Header.css";
 import { toast } from "sonner";
@@ -70,7 +71,7 @@ const Header = () => {
             <li>
               <NavLink>
                 <div>
-                  <img src={process.env.REACT_APP_ASSET_URL + `/assets/${userImage}`} 
+                  <img src={process.env.REACT_APP_ASSET_URL + `/assets/${userImage}` || defaultUserAvatar} 
                       alt="Profile" 
                       className="nav-user-profile"
                       onClick={handleUserState}
