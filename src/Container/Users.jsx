@@ -2,16 +2,12 @@ import React from 'react'
 
 import {  useLoaderData } from 'react-router-dom'
 import UserCard from '../Components/Users/UserCard'
-// import Loader from '../Shared/Loader/Loader'
 
 export async function loader() {
   const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users')
   const data = await response.json()
 
-  console.log('DataPromise here --- ', data);
   return data
-
-  // return defer({dataUsers: dataPromise}) //object
 }
 
 const Users = () => {
@@ -19,17 +15,6 @@ const Users = () => {
   console.log('usersData --- ',usersData);
   return (
     <div className='users'>
-      {/* <Suspense fallback={<Loader />}>
-        <Await resolve={usersData.dataUsers}>
-          {
-            (loadedUsers) => {
-              return(
-                <UserCard users={loadedUsers}/>
-              )
-            }
-          }
-        </Await>
-      </Suspense> */}
       <UserCard users={usersData} />
     </div>
   )
