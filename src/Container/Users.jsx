@@ -1,21 +1,25 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 
-import { Await, defer, useLoaderData } from 'react-router-dom'
+import {  useLoaderData } from 'react-router-dom'
 import UserCard from '../Components/Users/UserCard'
-import Loader from '../Shared/Loader/Loader'
+// import Loader from '../Shared/Loader/Loader'
 
 export async function loader() {
   const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users')
-  const dataPromise = response.json()
+  const dataPromise = await response.json()
 
-  return defer({dataUsers: dataPromise}) //object
+  console.log('DataPromise here --- ', dataPromise);
+  return dataPromise
+
+  // return defer({dataUsers: dataPromise}) //object
 }
 
 const Users = () => {
   const usersData = useLoaderData()
+  console.log('usersData --- ',usersData);
   return (
     <div className='users'>
-      <Suspense fallback={<Loader />}>
+      {/* <Suspense fallback={<Loader />}>
         <Await resolve={usersData.dataUsers}>
           {
             (loadedUsers) => {
@@ -25,7 +29,8 @@ const Users = () => {
             }
           }
         </Await>
-      </Suspense>
+      </Suspense> */}
+      <UserCard users={usersData} />
     </div>
   )
 }

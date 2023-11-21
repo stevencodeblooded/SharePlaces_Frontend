@@ -5,10 +5,11 @@ import defaultAvatarUser from '../assets/defaultAvatarProfile.jpg'
 import "./UserCard.css";
 
 const UserCard = ({ users }) => {
+  console.log('USERS --- ', users.users);
 
   const USERS = users.users
 
-  if (USERS.length  === 0 ) {
+  if (USERS.length === 0 ) {
     return (
       <div className="center-no-user-found">
         <h1>No User Was Found!</h1>
