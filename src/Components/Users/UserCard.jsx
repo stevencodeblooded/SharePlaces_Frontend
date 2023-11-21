@@ -21,7 +21,7 @@ const UserCard = ({ users }) => {
   return (
     <div className="users-list">
 
-        {USERS.map((user) => {
+        {USERS?.map((user) => {
 
           let noPlaces = user.places.length 
           return (

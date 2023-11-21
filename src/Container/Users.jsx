@@ -6,10 +6,10 @@ import UserCard from '../Components/Users/UserCard'
 
 export async function loader() {
   const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users')
-  const dataPromise = await response.json()
+  const data = await response.json()
 
-  console.log('DataPromise here --- ', dataPromise);
-  return dataPromise
+  console.log('DataPromise here --- ', data);
+  return data
 
   // return defer({dataUsers: dataPromise}) //object
 }
