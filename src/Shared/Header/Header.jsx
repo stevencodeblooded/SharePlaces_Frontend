@@ -71,7 +71,8 @@ const Header = () => {
             <li>
               <NavLink>
                 <div>
-                  <img src={process.env.REACT_APP_ASSET_URL + `/assets/${userImage}` || defaultUserAvatar} 
+                  <img src={process.env.REACT_APP_ASSET_URL + `/assets/${userImage}`} 
+                      onError={(e) => e.target.src = defaultUserAvatar}
                       alt="Profile" 
                       className="nav-user-profile"
                       onClick={handleUserState}
