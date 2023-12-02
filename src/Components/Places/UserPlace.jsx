@@ -7,6 +7,8 @@ import { useAuth } from '../utils/AuthContext';
 import defaultPlaceAvatar from '../assets/defaultAvatarPlace.jpg'
 
 import './UserPlace.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
 
 const UserPlace = ({ place }) => {
 
@@ -42,7 +44,10 @@ const UserPlace = ({ place }) => {
 
             <div className='place-title-desc'>
                 <h2>{ place.title }</h2>
-                <h3>{place.address}</h3>
+                <span className='location-data'>
+                    <FontAwesomeIcon className='location-pin'  icon={faLocationPin} />
+                    <h3>{place.address}</h3>
+                </span>
                 <p>{place.description}</p>
             </div>
 
@@ -54,9 +59,9 @@ const UserPlace = ({ place }) => {
                     <ViewOnMap setIsViewed={setIsViewed} user={place} />
                 )}
 
-                { THE_CREATOR && <Link to={`/Places/${place.id}/edit`}>Edit</Link>}
+                { THE_CREATOR ? <Link to={`/Places/${place.id}/edit`}>Edit</Link> : <Link className='disable-link' to={`/Places/${place.id}/edit`}>Edit</Link>}
 
-                { THE_CREATOR && <button onClick={handleDelete}>Delete</button>}
+                { THE_CREATOR ? <button onClick={handleDelete}>Delete</button> : <button className='disabled-btn' disabled={true}>Delete</button>}
                 {isDelete && (
                     <DeleteModal
                         isDelete={isDelete} 

@@ -12,7 +12,6 @@ export async function loader() {
 
 const Users = () => {
   const usersData = useLoaderData()
-  console.log('usersData --- ',usersData);
   return (
     <div className='users'>
       <UserCard users={usersData} />

@@ -85,6 +85,22 @@
     color: #FFD700;
 }
 
+.location-data {
+    display: flex;
+    align-items: center;
+}
+
+.location-pin {
+    color: #FF6B6B;
+    margin-left: 15px;
+}
+
+.disable-link, .disabled-btn {
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #FF6B6B;
+}
+
 @media screen and (max-width: 550px) {
     .user-place-data {
         width: 80%;
