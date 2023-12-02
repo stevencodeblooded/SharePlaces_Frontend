@@ -54,7 +54,7 @@ const UserPlace = ({ place }) => {
                     <ViewOnMap setIsViewed={setIsViewed} user={place} />
                 )}
 
-                { THE_CREATOR ? <Link className='active-link' to={`/Places/${place.id}/edit`}>Edit</Link> : <Link className='disable-link' to={`/Places/${place.id}/edit`}>Edit</Link>}
+                { THE_CREATOR ? <Link className='active-link-userplace' to={`/Places/${place.id}/edit`}>Edit</Link> : <Link className='disable-link' to={`/Places/${place.id}/edit`}>Edit</Link>}
 
                 { THE_CREATOR ? <button className='view-map-delete-btns' onClick={handleDelete}>Delete</button> : <button className='disabled-btn' >Delete</button>}
                 {isDelete && (
