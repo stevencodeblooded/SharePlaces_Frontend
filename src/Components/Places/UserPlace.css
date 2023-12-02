@@ -85,17 +85,13 @@
     color: #FFD700;
 }
 
-.location-data {
-    display: flex;
-    align-items: center;
-}
-
-.location-pin {
+.disable-link {
+    cursor: not-allowed;
+    background-color: #ccc;
     color: #FF6B6B;
-    margin-left: 15px;
 }
 
-.disable-link, .disabled-btn {
+.disabled-btn {
     cursor: not-allowed;
     background-color: #ccc;
     color: #FF6B6B;
