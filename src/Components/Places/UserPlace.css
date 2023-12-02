@@ -52,7 +52,7 @@
     margin-bottom: 20px;
 }
 
-.view-edit-delete > .active-link {
+.active-link {
     margin-inline: 20px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -65,7 +65,7 @@
     transition: .3s ease-in-out all;
 }
 
-.view-edit-delete > .active-link:hover{
+.active-link:hover{
     color: #FFD700;
 }
 
