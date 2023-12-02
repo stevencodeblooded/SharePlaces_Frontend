@@ -52,7 +52,7 @@
     margin-bottom: 20px;
 }
 
-.view-edit-delete > a {
+.view-edit-delete > .active-link {
     margin-inline: 20px;
     border: 1px solid #ccc;
     font-size: 16px;
@@ -65,11 +65,11 @@
     transition: .3s ease-in-out all;
 }
 
-.view-edit-delete > a:hover{
+.view-edit-delete > .active-link:hover{
     color: #FFD700;
 }
 
-.view-edit-delete > button {
+.view-map-delete-btns {
     font-size: 16px;
     font-weight: 500;
     padding: 4px 10px;
@@ -81,7 +81,7 @@
     transition: .3s ease-in-out all;
 }
 
-.view-edit-delete > button:hover {
+.view-map-delete-btns:hover {
     color: #FFD700;
 }
 

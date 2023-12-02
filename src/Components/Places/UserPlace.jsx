@@ -49,14 +49,14 @@ const UserPlace = ({ place }) => {
             <hr  className='hr-line'/>
 
             <div className='view-edit-delete'>
-                <button onClick={handleViewOnMap}>View on Map</button>
+                <button className='view-map-delete-btns' onClick={handleViewOnMap}>View on Map</button>
                 {isViewed && (
                     <ViewOnMap setIsViewed={setIsViewed} user={place} />
                 )}
 
-                { THE_CREATOR ? <Link to={`/Places/${place.id}/edit`}>Edit</Link> : <Link className='disable-link' to={`/Places/${place.id}/edit`}>Edit</Link>}
+                { THE_CREATOR ? <Link className='active-link' to={`/Places/${place.id}/edit`}>Edit</Link> : <Link className='disable-link' to={`/Places/${place.id}/edit`}>Edit</Link>}
 
-                { THE_CREATOR ? <button onClick={handleDelete}>Delete</button> : <button className='disabled-btn' >Delete</button>}
+                { THE_CREATOR ? <button className='view-map-delete-btns' onClick={handleDelete}>Delete</button> : <button className='disabled-btn' >Delete</button>}
                 {isDelete && (
                     <DeleteModal
                         isDelete={isDelete} 
